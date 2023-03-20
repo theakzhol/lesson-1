@@ -1,0 +1,121 @@
+.text {
+    font-size: 15px;
+}
+.text:hover {
+    font-size: 100px;
+    color: green;
+}
+
+/* .text {
+    transition-property: font-size;
+    transition-duration: 2s;
+} */
+/* This is small and fast animation */
+.text {
+    transition: font-size 2s;
+}
+/* Несколько свойств */
+.text {
+    transition: font-size 2s, color 2s;
+}
+/* Применяется на все свойства */
+.text {
+    transition: all 2s;
+}
+/* transition-delay - задержка перед применением */
+.text {
+    transition-property: all;
+    transition-duration: 2s;
+    transition-delay: 1s;
+}
+
+/* -----------------------------transition-timing-funchtion---------------- */
+.box {
+    width: 150px;
+    height: 150px;
+    transition-duration: 2s;
+    transition-property: width;
+}
+.container:hover .box {
+    width: 100vw;
+}
+/* LINEAR - задает эффект перехода с одинаковой скорости от начала до конца */
+.one {
+    background-color: red;
+    transition-timing-function: linear;
+}
+
+/* EASE-IN - задает эффект перехода с медленным стартом */
+.two {
+    background-color: green;
+    transition-timing-function: ease-in;
+}
+
+/* EASE-OUT - задает эффект перехода с медленным завершением*/
+.three {
+    background-color: royalblue;
+    transition-timing-function: ease-out;
+}
+
+/* EASE-IN-OUT - задает эффект перехода с медленным началом и медленным концом*/
+.four {
+    background-color: rgb(48, 156, 199);
+    transition-timing-function: ease-in-out;
+}
+
+/* CUBIC-BEZIER - мы сами задаем вручную эффект перехода*/
+.five {
+    background-color: rgb(225, 65, 164);
+    transition-timing-function: cubic-bezier(0, 0.31, 0.35, 1.01);
+}
+
+/* -------------------------SPINNER---------------------------------- */
+.spinner.svg {
+    animation: rotate 1.5 linear infinite;
+}
+
+.spinner circle {
+    animation: color 6s ease-in-out infinite, dash 1.5s ease-in-out infinite;
+    fill: none;
+    stroke: black;
+    stroke-width: 3;
+}
+
+@keyframes rotate {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes color {
+    0% {
+        stroke: pink;
+    }
+    25% {
+        stroke: blue;
+    }
+    50% {
+        stroke: green;
+    }
+    70% {
+        stroke: red;
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 90, 200;
+        stroke-dashoffset: -35;
+    }
+    100% {
+        stroke-dasharray: 90, 200;
+        stroke-dashoffset: -125;
+    }
+}

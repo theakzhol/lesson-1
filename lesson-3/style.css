@@ -1,0 +1,72 @@
+.parent {
+    font-size: 15px;
+}
+.child {
+    font-size: 2em;
+}
+* {
+    margin: 0;
+    padding: 0;  
+    box-sizing: border-box; 
+}
+
+/* Резиновая верстка  %, vh, vw, vmin, vmax*/
+.container {
+    width: 100%;
+    border: 2px solid red;
+    height: 100vh;      /* Viewport height */
+    display: flex;
+    justify-content: space-between;
+}
+.block1 {
+    width: 10%;
+    height: 100vmax;
+    background-color: aqua;
+}
+.block2 {
+    width: 50vmin;
+    background-color: goldenrod;
+    height: 100%;
+}
+.block3 {
+    width: 45%;
+    background-color: brown;
+    height: 100%;
+}
+
+/* Адаптивная верстка */
+.container_ {
+    /* vw - % от ширины окна браузера (viewport) */
+    max-width: 1000px;
+    border: 1px solid black;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.block {
+    min-width: 200px;
+    height: 200px;
+    text-align: center;
+}
+.block:nth-child(even) { /*even - четное*/
+    background-color: yellow;
+}
+.block:nth-child(odd) { /*odd - нечетное */
+    background-color: green;
+}
+
+@media all and (max-width: 600px) {
+    .block {
+        font-size: 3.2rem;
+        color: white;
+
+    }
+}
+@media all and (max-width: 400px) {
+    .container_ {
+        display: block;
+    }
+    .block:nth-child(even) {
+        background-color: red;
+    }
+}
